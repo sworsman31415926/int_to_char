@@ -1,0 +1,46 @@
+C++ int与char[]的相互转换
+C++ int与char[]的相互转换
+一、itoa函数与atio函数
+①把int类型数字转成char类型，可以使用itoa函数。
+
+itoa函数原型：
+
+char*itoa(int value,char*string,int radix);
+int value 被转换的整数，char *string 转换后储存的字符数组，int radix 转换进制数，如2,8,10,16 进制等。
+
+功能：将任意类型的数字转换为字符串。
+
+②在<stdlib.h>中与之有相反功能的函数是atoi。
+
+example:
+#include<stdio.h>
+#include<stdlib.h>
+
+#include<iostream>
+#using namespace std;
+
+void main()
+
+{
+　　char str[10]="121";
+　　int num=atoi(str);
+　　cout<<num<<endl;
+
+　　char str2[10]={0};
+　　itoa(num,str2,10);
+　　cout<<str2<<endl;
+
+}
+
+二、sprintf函数
+
+sprintf函数可用于格式化数字字符串：
+
+在这点上sprintf和printf的用法一样，只是打印到的位置不同而已，前者打印给buffer字符串，后者打印给标准输出，所以sprintf也可以用来将整型转化为字符串，比itoa效率高且如此地简便~
+
+比如：
+
+sprintf(buffer, "%d", 2131);
+即把整型变量拼接到buffer当中
+。。。。。。。。。。。。。。。。。。。。
+注意%d,不是%s
